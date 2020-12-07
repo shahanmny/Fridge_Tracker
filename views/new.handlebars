@@ -1,0 +1,73 @@
+<div class="container">
+    <form action="/new" method="POST">
+        <div class="row">
+            <div class="col-4"></div>
+
+            <div class="col-4">
+                <h1>Create New Item</h1>
+                
+                <hr>
+
+                <label>Item</label>
+                <input type="text" name="name" placeholder="Enter Item's Name" class="form-control" maxlength="18">
+
+                <hr>
+
+                <label>Quantity</label> 
+                <p style="display: inline; float: right;">Value: <span id="display"></span></p>
+                <input type="range" name="quantity" id="quantity" class="custom-range" min="1" max="25" value="0">
+
+                <hr>
+
+                <label>Type</label>
+                <select name="type" class="form-control">
+                    <option name="type" value="none" selected>None</option>
+                    <option name="type" value="dairy">Dairy</option>
+                    <option name="type" value="fruits">Fruits</option>
+                    <option name="type" value="vegetables">Vegetables</option>
+                    <option name="type" value="meats">Meats</option>
+                    <option name="type" value="grains">Grains</option>
+                    <option name="type" value="seafood">Seafood</option>
+                    <option name="type" value="sugar">Sugar</option>
+                    <option name="type" value="drinks">Drinks</option>
+
+                </select>
+
+                <hr>
+                
+                <label>Expiration Date</label>
+                <div class="input-group input-group-sm">
+                    <input type="text" name="mm" placeholder="mm" class="form-control" maxlength="2">  
+                    <input type="text" name="dd" placeholder="dd" class="form-control" maxlength="2">
+                    <input type="text" name="yyyy" placeholder="yyyy" class="form-control" maxlength="4">
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-6 col-sm">
+                        <button type="submit" name="submit" value="cancel" class="btn btn-secondary rounded-0 form-control">Cancel</button>
+                    </div>
+
+                    <div class="col-6 col-sm">
+                        <button type="submit" name="submit" value="create" class="btn btn-primary rounded-0 form-control">Create</button> 
+                    </div>
+                </div>
+
+                <p class="text-danger text-center">{{message}}</p>
+            </div>
+
+            <div class="col-4"></div>
+        </div>
+    </form>
+</div>
+
+<script>
+    let slider = document.getElementById("quantity");
+    let output = document.getElementById("display");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = () => {
+        output.innerHTML = slider.value;
+    }
+</script>

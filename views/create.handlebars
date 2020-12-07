@@ -1,0 +1,73 @@
+<div class="container">
+    <form action="/create" method="POST">
+        <h1>Create Fridge</h1>
+        
+        <hr>
+
+        {{!-- <h5>Name</h5>
+
+        <input type="text" name="name" placeholder="Add Name"> 
+        
+        <br>
+        
+        <hr>
+        
+        <h5>Type</h5>
+        <select name="type">
+            <option name="type" value="Fridge">Fridge</option>
+            <option name="type" value="Freezer">Freezer</option>
+        </select>
+
+        <hr> --}}
+
+        <div class="form-inline">
+            <h5>How many shelves/drawers?</h5>
+            <div style="width: 10px"></div>
+            <select name="max">
+                {{#each this}}
+                    {{#if this.max}}
+                        <option name="length" value={{this.num}} selected>{{this.num}}</option>
+                    {{else if this.num}}
+                        <option name="length" value={{this.num}}>{{this.num}}</option>
+                    {{/if}}
+                {{/each}}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-sm rounded-0 float-right" name="submit" value="update">Update</button>
+        <div class="clearfix"></div>
+
+        <hr>
+
+        {{#each this}}
+            {{#if this.show}}
+                <div class="row">
+                    <div class="col-2">
+                        <label>Level {{this.num}}</label>
+                    </div>
+                    <div class="col-2">
+                        <select name="level{{this.num}}">
+                            <option name="level" value="Shelf" selected>Shelf</option>
+                            <option name="level" value="Drawer">Drawer</option>
+                        </select>
+                    </div> 
+                    <div class="col-2">
+                        {{#if this.end}}
+                            <p>{{this.end}}</p>
+                        {{else}}
+                            <p class="text-white">a</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-6"></div>   
+                </div>
+            {{/if}}
+        {{/each}}
+
+        <button type="submit" name="submit" value="create" class="btn btn-primary rounded-0 float-right">Create</button> 
+        {{!-- <button type="submit" name="submit" value="cancel" class="btn btn-secondary rounded-0 float-right">Cancel</button> --}}
+    
+        <div class="clearfix"></div>
+
+        <hr>
+    </form>
+</div>

@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand">Fridge Tracker</a>
+    
+    <ul class="navbar-nav ml-auto">
+        <form action="/" method="GET">
+            <li class="nav-item">
+                <button type="submit" class="btn btn-dark" type="button">Fridge</button>
+            </li>
+        </form>
+        
+        <form action="/stats" method="GET">
+            <li class="nav-item">
+                <button type="submit" class="btn btn-dark" type="button">Stats</button>
+            </li>
+        </form>
+        
+        <form action="/signout" method="GET">
+            <li class="nav-item">
+                <button type="submit" class="btn btn-dark" type="button">Sign Out</button>
+            </li>
+        </form>
+    </ul>
+</nav>
+
+<div style="height: 50px;"></div>
+
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+<script type="text/javascript">
+    let data = [];
+    data.push({y:{{this.other}}, label: "Other"});
+    data.push({y:{{this.dairy}}, label:"Dairy"});
+    data.push({y:{{this.fruits}}, label: "Fruits"});
+    data.push({y:{{this.vegetables}}, label: "Vegetables"});
+    data.push({y:{{this.meats}}, label: "Meats"});
+    data.push({y:{{this.grains}}, label: "Grains"});
+    data.push({y:{{this.seafood}}, label: "Seafood"});
+    data.push({y:{{this.sugar}}, label: "Sugar"});
+    data.push({y:{{this.drinks}}, label: "Drinks"});
+
+    window.onload = () => {
+        let chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: 'Percentage of Items in Fridge'
+            },
+            data:[{
+                type: 'pie',
+                startAngle: 240,
+                yValueFormatString: '##0.00"%"',
+                indexLabel: '{label} {y}',
+                dataPoints: data
+            }]
+        });
+        chart.render();
+    }
+</script>

@@ -1,0 +1,24 @@
+{
+  "name": "fridge_tracker",
+  "version": "1.0.0",
+  "description": "Track the Items in your Fridge",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "is-async-function": "^1.3.0",
+    "mongodb": "^3.6.2",
+    "nodemailer": "^6.4.16",
+    "node-schedule": "^1.3.2",
+    "nodemon": "^2.0.5",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Shahan Mudasir",
+  "license": "ISC"
+}

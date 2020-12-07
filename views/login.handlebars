@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 class="display-4 text-center">Fridge Tracker</h1>
+    
+    <hr>
+
+    <div style="height:50px"></div>
+
+    <form action="/login" method="Post" class="mb-4">
+        <div class="form-group row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control form-control-sm" placeholder="Enter Email">
+                
+                <hr>
+                
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control form-control-sm" placeholder="Enter Password">
+                
+                <hr>
+                
+                <div class="row">
+                    <div class="col-xl-1"></div>
+                    <div class="col-xl-5" style="padding-left: 0px; padding-right: 0px;">
+                        <button type="submit" name="login" value="createAccount" class="btn btn-secondary btn-block rounded-0">Create Account</button>
+                    </div>
+                    <div class="col-xl-5" style="padding-left: 0px; padding-right: 0px;">
+                        <button type="submit" name="login" value="signIn" class="btn btn-primary btn-block rounded-0">Sign In</button>
+                    </div>
+                    <div class="col-xl-1"></div>
+                </div>
+
+                <div style="height:5px"></div>
+                <p class="text-danger text-center">{{message}}</p>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand">Fridge Tracker</a>
+    
+    <ul class="navbar-nav ml-auto">
+        <form action="/" method="GET">
+            <li class="nav-item">
+                <button type="submit" class="btn btn-dark" type="button">Fridge</button>
+            </li>
+        </form>
+        
+        <form action="/stats" method="GET">
+            <li class="nav-item">
+                <button type="submit" class="btn btn-dark" type="button">Stats</button>
+            </li>
+        </form>
+        
+        <form action="/signout" method="GET">
+            <li class="nav-item">
+                <button type="submit" class="btn btn-dark" type="button">Sign Out</button>
+            </li>
+        </form>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+
+        <div class="col-8">            
+            {{#each this}}
+                {{#if this.num}}
+                    <p class="text-muted" style="margin-bottom: 0px;  margin-top: 12px;">Level {{this.num}} - {{this.type}}</p>
+
+                    <hr style="margin-bottom: 10px; margin-top: 0px;">
+
+                    {{#each this.items}}
+                        <button type="button" class="btn btn-{{style}}" style="margin-bottom: 3px;">{{name}} <span class="badge badge-pill badge-dark">{{quantity}}</span></button>
+                    {{/each}}
+
+                    <form action="/new" method="GET" style="display: inline;">
+                        <button type="submit" class="btn btn-primary" name="level" value="{{this.num}}">Add New Item</button>
+                    </form>
+                {{/if}}
+            {{/each}}
+        </div>
+
+        <div class="col-2"></div>
+    </div>
+</div>
